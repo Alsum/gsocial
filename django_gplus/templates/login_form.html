@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class='col-sm-6 col-sm-offset-3' style='margin-top: 50px;'>
+    <form method='POST' action=''>{% csrf_token %}
+        {{form.as_p}}
+        <input type='submit' value='{% if submit_btn %}{{ submit_btn }}{% else %}Submit{% endif %}'
+               class='btn btn-default'/>
+    </form>
+    <br>
+  <p><strong>-- OR --</strong></p>
+  <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>
+</div>
+
+{% endblock %}
